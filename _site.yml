@@ -1,4 +1,5 @@
 name: "mayunk-bharadwaj"
+output_dir: "docs"
 navbar:
   title: "Mayunk Bharadwaj"
   left:
