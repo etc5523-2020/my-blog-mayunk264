@@ -1,0 +1,7 @@
+---
+title: "My Website"
+---
+
+Hello! My name is Mayunk Bharadwaj and I am currently studying Business Analytics at Monash University. I have a strong interest in basketball (go Lakers!), cricket and music.
+
+On this website, you will find some of my data analysis work. Feel free to read and share.

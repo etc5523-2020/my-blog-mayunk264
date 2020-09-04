@@ -1,0 +1,113 @@
+---
+title: "Blog Post One: Coronavirus in Colombia"
+---
+
+## What does the data tell us?
+
+The novel coronavirus (COVID-19) has created havoc in the world in 2020. The last global pandemic of this nature - the Spanish Flu - occurred a century ago. As such, nations all around the globe have struggled to contain this virus due to sheer lack of experience in containing highly infectious diseases.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+library(tidyverse)
+library(kableExtra)
+library(plotly)
+library(lubridate)
+```
+
+```{r}
+#loading data - I downloded from Rami Krispin's github and included the file in the repository. The data can also be found by installing the `coronavirus` package. 
+load(file = "coronavirus.rda")
+```
+
+Colombia - located on the northern tip of the South American continent - has also been ravaged by the disease. Using data supplied by [Rami Krispin](https://github.com/RamiKrispin/coronavirus#readme), we can tell the story of coronavirus in Colombia.
+
+The table below shows us summary statistics for daily confirmed coronavirus cases, daily coronavirus-related deaths and daily coronavirus recoveries in Colombia. 
+
+The daily average confirmed cases is 2815 while the maximum daily number of confirmed cases reached was 19001. The daily coronavirus-related deaths had an average of 90.42 while the maximum was 748. On the other hand, daily coronavirus recoveries averaged 2131 with a maximum daily recoveries of 25084.
+
+```{r}
+#selecting relevant variables
+colombia_coronavirus <- coronavirus %>%
+  filter(country=="Colombia") %>%
+  select(date,type,cases)
+
+#pivoting 'type' wider
+colombia_coronavirus_wider <- pivot_wider(data=colombia_coronavirus, names_from = type, values_from = cases) 
+  
+#geneerating summary stat table
+colombia_summary <- colombia_coronavirus_wider %>%
+  select(confirmed,death,recovered) %>%
+  summary() %>%
+  kable(caption="Coronavirus Outcomes in Colombia - Summary Statistics") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+
+colombia_summary
+
+```
+
+Of course, there's only so much we can infer about Colombia's battle with coronavirus by looking at the summary statistics. The figure below shows us how Colombia's daily coronavirus outcomes (confirmed cases, deaths and recoveries) (on the y-axis) relative to the date (on the x-axis). As we can see, the first incidence of coronavirus in Colombia popped up in late March and then grew exponentially reaching its peak in early August before beginning what appears to be a gradual descent. Recoveries seem to follow the same general trend as confirmed cases while deaths appear to be relatively stable - although it is hard to say much on death by looking at the plot due to the scale differential between deaths and confirmed/recoveries.
+
+Please note: this plot is interactive. Hover your mouse over the graph to identify how many cases occurred on any particular day.
+
+```{r}
+
+#creating plot over coronavirus outcomes
+
+colombia_coronavirus_plot <- colombia_coronavirus %>%
+  ggplot() +
+  geom_line(aes(x=date,y=cases,color=type)) +
+  ylab("Coronavirus outcomes") +
+  xlab("Date") +
+  ggtitle("Coronavirus Outcomes over time in Colombia")
+
+ggplotly(colombia_coronavirus_plot)
+
+
+```
+
+
+
+Now we know a little bit about the prevalence of coronavirus outcomes in Colombia, let's ask the question - did Colombia get better at treating coronavirus? To do this, we create a new variable called `monthly_recovery_rate` which calculates the daily recovery rate (recovered cases divided by confirmed cases) and group them by month.
+
+This variable is obviously limited in as there is a lag between recovery and initial infection confirmation. Yet, it can give us a general idea of how a country may have improved in treating coronavirus.
+
+By looking at table below, we see that in the initial months of the pandemic, Colombia struggled but from June onwards, may have figured out better management strategies as the recovery rate increases rapidly. In September, we see that the recovery rate is over 1! This is physically impossible as you can not have more recoveries than confirmed cases. However, as previously mentioned, this can be accounted for by the lag in recovery.
+
+```{r}
+#creating recovery_rate variable
+mod_colombia_coronvirus_wider <- colombia_coronavirus_wider %>%
+  mutate(recovery_rate=recovered/confirmed,
+         month=month(date)) %>%
+  drop_na(recovery_rate)
+
+#generating table grouped by month
+mod_colombia_coronvirus_wider %>%
+  group_by(month) %>%
+  summarise(monthly_recovery_rate=mean(recovery_rate)) %>%
+  kable(caption = "Average Monthly Coronavirus Recovery Rates in Colombia") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+
+```
+
+## References
+
+C. Sievert (2020). Interactive Web-Based Data Visualization with R,
+  plotly, and shiny. Chapman and Hall/CRC Florida.
+  
+Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made
+  Easy with lubridate. Journal of Statistical Software, 40(3),
+  1-25. URL http://www.jstatsoft.org/v40/i03/.
+  
+Hao Zhu (2019). kableExtra: Construct Complex Table with 'kable'
+  and Pipe Syntax. R package version 1.1.0.
+  https://CRAN.R-project.org/package=kableExtra
+  
+Rami Krispin and Jarrett Byrnes (2020). coronavirus: The 2019
+  Novel Coronavirus COVID-19 (2019-nCoV) Dataset. R package
+  version 0.3.0. https://CRAN.R-project.org/package=coronavirus
+  
+Wickham et al., (2019). Welcome to the tidyverse. Journal of
+  Open Source Software, 4(43), 1686,
+  https://doi.org/10.21105/joss.01686
+
