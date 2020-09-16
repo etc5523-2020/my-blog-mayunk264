@@ -1,0 +1,87 @@
+---
+title: "Blog Post One: Coronavirus in Colombia"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+library(tidyverse)
+library(kableExtra)
+library(plotly)
+library(lubridate)
+```
+
+
+```{r}
+#loading data - I downloded from Rami Krispin's github and included the file in the repository. The data can also be found by installing the `coronavirus` package. 
+load(file = "coronavirus.rda")
+```
+
+
+```{r}
+#filtering data on Ecuador and pivoting the case types wider
+ecuador <- coronavirus %>%
+  filter(country=="Ecuador") %>%
+  pivot_wider(names_from = type, values_from = cases)
+```
+
+# How has Ecudaor's treatment of the coronavirus changed over time?
+
+At the beginning of the world, the novel coronavirus (COVID-19) ravaged nations all around the word, in part, due to the world's inexperience in dealing with such a unique infectious disease. As time has gone on, however, nations have developed expertise in treating this disease. 
+
+To gauge how Ecuador's ability to cope with the coronavirus has changed, let us look at how the number of deaths occuring within a week have changed.
+
+```{r ecuador-death, fig.cap="On the x-axis is the week of the year and on the y-axis is the coronavirus-related deaths that occured during that week"}
+
+ecuador_death_plot <- ecuador %>%
+  mutate(week=week(date)) %>%
+  group_by(week) %>%
+  summarise(weekly_deaths=sum(death)) %>%
+  ggplot() +
+  geom_line(aes(x=week,y=weekly_deaths,color=weekly_deaths)) +
+  scale_color_gradient(low = "green", high = "red") +
+  xlab("Week of the Year") +
+  ylab("Weekly Deaths") +
+  theme(legend.title = element_blank()) +
+  ggtitle("Coronavirus-related deaths in Ecuador") +
+  transition_states(week)
+
+ecuador_death_plot
+
+```
+
+
+As we can see, weekly deaths started off at zero before beginning a rapid rise through weeks 12-18 before peaking at week 19 with over 700 deaths. After that point, Ecuador seem to have gained experience in dealing with coronavirus as we then see a sharpish decline through week 26 after which we see the weekly deaths begin jumping up and down but generally following a steady decline.
+
+Therefore, in answer to our question, we can say that Ecuador's treatment of coronavirus improved over time as the weekly deaths declined.
+
+
+# Has Ecuador experienced more coronavirus-related death relative to its population than its neighbours?
+
+ Ecuador shares borders with Colombia and Peru. So, was Ecuador more or less affected by the coronavirus in terms of resulting death compared to its neighbours?
+ 
+As we can see from the below table, Ecuador had considerably less total death due to the coronavirus relative to its neighbours. We can also see that is a much lower population compared to its neighbours and as such its 'death rate' is much lower at 0.0126% comsapred to 0.0137% for Cololbia and a whopping 0.0347% for Peru.
+
+```{r}
+total_deaths <- coronavirus %>%
+  filter(country==c("Ecuador","Peru","Colombia"),
+         type=="death") %>%
+  group_by(country) %>%
+  summarise(total_death=sum(cases))
+
+population <- tribble(
+  ~country, ~population,
+  "Colombia",50999546,
+  "Ecuador",17701044,
+  "Peru",33071098
+)
+
+countries_death_population <- inner_join(total_deaths,population,by="country") %>%
+  mutate(death_rate_percentage=(total_death/population)*100) %>%
+  arrange(-death_rate_percentage) %>%
+  kable(caption="Ecuador, Peru and Colombia's coronavirus-related deaths relative to population") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+countries_death_population
+```
+
