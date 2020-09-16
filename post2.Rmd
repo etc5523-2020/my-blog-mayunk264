@@ -7,7 +7,6 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 library(tidyverse)
 library(kableExtra)
-library(plotly)
 library(lubridate)
 ```
 
@@ -18,18 +17,19 @@ load(file = "coronavirus.rda")
 ```
 
 
-```{r}
+```{r ecuador}
 #filtering data on Ecuador and pivoting the case types wider
 ecuador <- coronavirus %>%
   filter(country=="Ecuador") %>%
   pivot_wider(names_from = type, values_from = cases)
 ```
 
-# How has Ecudaor's treatment of the coronavirus changed over time?
+
+## How has Ecudaor's treatment of the coronavirus changed over time?
 
 At the beginning of the world, the novel coronavirus (COVID-19) ravaged nations all around the word, in part, due to the world's inexperience in dealing with such a unique infectious disease. As time has gone on, however, nations have developed expertise in treating this disease. 
 
-To gauge how Ecuador's ability to cope with the coronavirus has changed, let us look at how the number of deaths occuring within a week have changed.
+To gauge how Ecuador's ability to cope with the coronavirus has changed, let us look at how the number of deaths occuring within a week have changed. We will do this using data supplied by [Rami Krispin](https://github.com/RamiKrispin/coronavirus#readme)
 
 ```{r ecuador-death, fig.cap="On the x-axis is the week of the year and on the y-axis is the coronavirus-related deaths that occured during that week"}
 
@@ -55,13 +55,13 @@ As we can see, weekly deaths started off at zero before beginning a rapid rise t
 Therefore, in answer to our question, we can say that Ecuador's treatment of coronavirus improved over time as the weekly deaths declined.
 
 
-# Has Ecuador experienced more coronavirus-related death relative to its population than its neighbours?
+## Has Ecuador experienced more coronavirus-related death relative to its population than its neighbours?
 
- Ecuador shares borders with Colombia and Peru. So, was Ecuador more or less affected by the coronavirus in terms of resulting death compared to its neighbours?
+Ecuador shares borders with Colombia and Peru. So, was Ecuador more or less affected by the coronavirus in terms of resulting death compared to its neighbours?
  
 As we can see from the below table, Ecuador had considerably less total death due to the coronavirus relative to its neighbours. We can also see that is a much lower population compared to its neighbours and as such its 'death rate' is much lower at 0.0126% comsapred to 0.0137% for Cololbia and a whopping 0.0347% for Peru.
 
-```{r}
+```{r deaths-table}
 total_deaths <- coronavirus %>%
   filter(country==c("Ecuador","Peru","Colombia"),
          type=="death") %>%
@@ -84,3 +84,25 @@ countries_death_population <- inner_join(total_deaths,population,by="country") %
 countries_death_population
 ```
 
+As we can see from the below table, Ecuador had considerably less total death due to the coronavirus relative to its neighbours. We can also see that is a much lower population compared to its neighbours and as such its 'death rate' is much lower at 0.0126% comsapred to 0.0137% for Cololbia and a whopping 0.0347% for Peru.
+
+## References
+
+Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made
+  Easy with lubridate. Journal of Statistical Software, 40(3),
+  1-25. URL http://www.jstatsoft.org/v40/i03/.
+  
+Hao Zhu (2019). kableExtra: Construct Complex Table with 'kable'
+  and Pipe Syntax. R package version 1.1.0.
+  https://CRAN.R-project.org/package=kableExtra
+  
+Rami Krispin and Jarrett Byrnes (2020). coronavirus: The 2019
+  Novel Coronavirus COVID-19 (2019-nCoV) Dataset. R package
+  version 0.3.0. https://CRAN.R-project.org/package=coronavirus
+  
+Wickham et al., (2019). Welcome to the tidyverse. Journal of
+  Open Source Software, 4(43), 1686,
+  https://doi.org/10.21105/joss.01686
+  
+Worldometer.info., (2020). Countries in South America by population    (2020),
+  https://www.worldometers.info/population
