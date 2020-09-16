@@ -25,9 +25,9 @@ ecuador <- coronavirus %>%
 ```
 
 
-## How has Ecudaor's treatment of the coronavirus changed over time?
+## How has Ecuador's treatment of the coronavirus changed over time?
 
-At the beginning of the world, the novel coronavirus (COVID-19) ravaged nations all around the word, in part, due to the world's inexperience in dealing with such a unique infectious disease. As time has gone on, however, nations have developed expertise in treating this disease. 
+At the beginning of the year, the novel coronavirus (COVID-19) ravaged nations all around the word, in part, due to the world's inexperience in dealing with such a uniquely infectious disease. As time has gone on, however, nations have developed expertise in treating this disease. 
 
 To gauge how Ecuador's ability to cope with the coronavirus has changed, let us look at how the number of deaths occuring within a week have changed. We will do this using data supplied by [Rami Krispin](https://github.com/RamiKrispin/coronavirus#readme)
 
@@ -59,7 +59,7 @@ Therefore, in answer to our question, we can say that Ecuador's treatment of cor
 
 Ecuador shares borders with Colombia and Peru. So, was Ecuador more or less affected by the coronavirus in terms of resulting death compared to its neighbours?
  
-As we can see from the below table, Ecuador had considerably less total death due to the coronavirus relative to its neighbours. We can also see that is a much lower population compared to its neighbours and as such its 'death rate' is much lower at 0.0126% comsapred to 0.0137% for Cololbia and a whopping 0.0347% for Peru.
+As we can see from the below table, Ecuador had considerably less total death due to the coronavirus relative to its neighbours. We can also see that it has a much lower population compared to its neighbours and as such its 'death rate' is much lower at 0.0126% compared to 0.0137% for Colombia and a whopping 0.0347% for Peru.
 
 ```{r deaths-table}
 total_deaths <- coronavirus %>%
@@ -84,7 +84,6 @@ countries_death_population <- inner_join(total_deaths,population,by="country") %
 countries_death_population
 ```
 
-As we can see from the below table, Ecuador had considerably less total death due to the coronavirus relative to its neighbours. We can also see that is a much lower population compared to its neighbours and as such its 'death rate' is much lower at 0.0126% comsapred to 0.0137% for Cololbia and a whopping 0.0347% for Peru.
 
 ## References
 
