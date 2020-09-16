@@ -43,11 +43,10 @@ ecuador_death_plot <- ecuador %>%
   xlab("Week of the Year") +
   ylab("Weekly Deaths") +
   theme(legend.title = element_blank()) +
-  ggtitle("Coronavirus-related deaths in Ecuador") +
-  transition_states(week)
+  ggtitle("Coronavirus-related deaths in Ecuador")
+
 
 ecuador_death_plot
-
 ```
 
 
