@@ -9,6 +9,8 @@ navbar:
       href: post1.html
     - text: "Blog Post 2: Coronavirus in Ecuador"
       href: post2.html
+    - text: "Shiny App: Self-reflection"
+    - href: post3.html
 output:
   html_document:
     theme: yeti

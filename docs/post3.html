@@ -11,7 +11,7 @@
 
 
 
-<title>Blog Post Two: Coronavirus in Ecuador</title>
+<title>Blog Post Three: Shiny app: Self-reflection</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,7 +22,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -298,101 +297,42 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Blog Post Two: Coronavirus in Ecuador</h1>
+<h1 class="title toc-ignore">Blog Post Three: Shiny app: Self-reflection</h1>
 
 </div>
 
 
-<div id="how-has-ecuadors-treatment-of-the-coronavirus-changed-over-time" class="section level2">
-<h2>How has Ecuador’s treatment of the coronavirus changed over time?</h2>
-<p>At the beginning of the year, the novel coronavirus (COVID-19) ravaged nations all around the word, in part, due to the world’s inexperience in dealing with such a uniquely infectious disease. As time has gone on, however, nations have developed expertise in treating this disease.</p>
-<p>To gauge how Ecuador’s ability to cope with the coronavirus has changed, let us look at how the number of deaths occuring within a week have changed. We will do this using data supplied by <a href="https://github.com/RamiKrispin/coronavirus#readme">Rami Krispin</a></p>
-<div class="figure">
-<img src="post2_files/figure-html/ecuador-death-1.png" alt="On the x-axis is the week of the year and on the y-axis is the coronavirus-related deaths that occured during that week" width="672" />
-<p class="caption">
-On the x-axis is the week of the year and on the y-axis is the coronavirus-related deaths that occured during that week
-</p>
+<div id="my-shiny-app" class="section level2">
+<h2>My Shiny App</h2>
+<p>I wrote a shiny application entitled ‘Coronavirus in Australia’. The application’s purpose was to provide the user with information on how coronavirus has affected Australia in 2020. The application contained three main sections:</p>
+<ul>
+<li>First graphic: A graph displaying confirmed coronavirus cases by state over time where the user has the ability to select their state of interest</li>
+<li>Table: A table displaying confirmed coronavirus cases, deaths, recoveries, confirmed cumulative cases, cumulative deaths and cumulative recoveries in Australia by date where the user has the ability to select their date of interest.</li>
+<li>Second graphic: A plotly graphic displaying coronavirus-related deaths in Victoria over time where the user has the ability to click on a data point of their choosing. The action of clicking would then generate a sentence describing the date and how many deaths occurred on that date in Victoria. The inclusion of this Victorian death graphic was motivated by the large number of coronavirus cases in Victoria as seen in the first graphic.</li>
+</ul>
 </div>
-<p>As we can see, weekly deaths started off at zero before beginning a rapid rise through weeks 12-18 before peaking at week 19 with over 700 deaths. After that point, Ecuador seem to have gained experience in dealing with coronavirus as we then see a sharpish decline through week 26 after which we see the weekly deaths begin jumping up and down but generally following a steady decline.</p>
-<p>Therefore, in answer to our question, we can say that Ecuador’s treatment of coronavirus improved over time as the weekly deaths declined.</p>
+<div id="self-review" class="section level2">
+<h2>Self Review</h2>
+<div id="what-did-i-do-well" class="section level3">
+<h3>What did I do well?</h3>
+<p>I was pleased with my use of the ‘shiny dashboard’ format as opposed to the standard shiny format. I felt this made my application more aesthetically pleasing, easier to navigate and more functional for the end user. My concern in using the standard shiny format is that it would be easy for the end user’s eye to stray and become confused by a multitude of plots on the same page. The shiny dashboard provided a more structured format.</p>
+<p>I was also pleased with my use of ‘event_data’ functionality for the second graphic. This was by far the most complex code to implement for me, so to see the output work seamlessly was of great satisfaction to me.</p>
 </div>
-<div id="has-ecuador-experienced-more-coronavirus-related-death-relative-to-its-population-than-its-neighbours" class="section level2">
-<h2>Has Ecuador experienced more coronavirus-related death relative to its population than its neighbours?</h2>
-<p>Ecuador shares borders with Colombia and Peru. So, was Ecuador more or less affected by the coronavirus in terms of resulting death compared to its neighbours?</p>
-<p>As we can see from the below table, Ecuador had considerably less total death due to the coronavirus relative to its neighbours. We can also see that it has a much lower population compared to its neighbours and as such its ‘death rate’ is much lower at 0.0126% compared to 0.0137% for Colombia and a whopping 0.0347% for Peru.</p>
-<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
-<caption>
-Ecuador, Peru and Colombia’s coronavirus-related deaths relative to population
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-country
-</th>
-<th style="text-align:right;">
-total_death
-</th>
-<th style="text-align:right;">
-population
-</th>
-<th style="text-align:right;">
-death_rate_percentage
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Peru
-</td>
-<td style="text-align:right;">
-11471
-</td>
-<td style="text-align:right;">
-33071098
-</td>
-<td style="text-align:right;">
-0.0346859
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Colombia
-</td>
-<td style="text-align:right;">
-6972
-</td>
-<td style="text-align:right;">
-50999546
-</td>
-<td style="text-align:right;">
-0.0136707
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Ecuador
-</td>
-<td style="text-align:right;">
-2229
-</td>
-<td style="text-align:right;">
-17701044
-</td>
-<td style="text-align:right;">
-0.0125925
-</td>
-</tr>
-</tbody>
-</table>
+<div id="what-are-some-things-i-could-improve-on" class="section level3">
+<h3>What are some things I could improve on?</h3>
+<p>I think the aesthetics of the application could have been better. Although the application looks nice, it is not necessarily beautiful or highly compelling in the ways that some of the best dashboards are. Being able to communicate data stylishly and beautifully is as important as the data analysis itself, in my opinion. Specifically, I think the use of infoBoxes, valueBoxes or a livelier skin might have made the application pop a bit more.</p>
+<p>I could also improve the application by using more complex and varied user input options. For example, for the first graphic I could have chosen to include a user input where the user is able to select multiple states. Or perhaps in the Table, instead of a single date use input, I could have included a date range input so the user can obtain more specific information about longer time periods (as opposed to a single day).</p>
 </div>
-<div id="references" class="section level2">
-<h2>References</h2>
-<p>Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1-25. URL <a href="http://www.jstatsoft.org/v40/i03/" class="uri">http://www.jstatsoft.org/v40/i03/</a>.</p>
-<p>Hao Zhu (2019). kableExtra: Construct Complex Table with ‘kable’ and Pipe Syntax. R package version 1.1.0. <a href="https://CRAN.R-project.org/package=kableExtra" class="uri">https://CRAN.R-project.org/package=kableExtra</a></p>
-<p>Rami Krispin and Jarrett Byrnes (2020). coronavirus: The 2019 Novel Coronavirus COVID-19 (2019-nCoV) Dataset. R package version 0.3.0. <a href="https://CRAN.R-project.org/package=coronavirus" class="uri">https://CRAN.R-project.org/package=coronavirus</a></p>
-<p>Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, <a href="https://doi.org/10.21105/joss.01686" class="uri">https://doi.org/10.21105/joss.01686</a></p>
-<p>Worldometer.info., (2020). Countries in South America by population (2020), <a href="https://www.worldometers.info/population" class="uri">https://www.worldometers.info/population</a></p>
+<div id="plausible-additions" class="section level3">
+<h3>Plausible additions</h3>
+<p>In the first graphic, I could have chosen to use a map of Australia whereby the user could click on a state that would in turn generate the graphic of confirmed coronavirus cases over time. This would have made the section more fun and user-friendly.</p>
+<p>Also, I think in the second graphic, the generated sentence could have been more complex and could have included more information such as deaths in Victoria as a proportion of deaths in Australia at that point in time.</p>
+</div>
+<div id="additions-that-were-affected-by-my-limitations-in-data-or-technology" class="section level3">
+<h3>Additions that were affected by my limitations in data or technology</h3>
+<p>With more expertise, I might have added a section which displayed a model that forecasted future confirmed cases based on multiple models that the user would be able to select. For example, the user may have been able to select between parametric or non-parametric regression to forecast their chosen state’s future confirmed cases. As of now, this is beyond the scope of my abilities in using R.</p>
+<p>I also believe that my relative inexperience in using HTML and CSS affected my ability to create a really beautiful dashboard. With more experience in those two languages, I believe I will be able to create prettier and more compelling dashboards.</p>
+</div>
 </div>
 
 <p>Thanks for visiting!</p>

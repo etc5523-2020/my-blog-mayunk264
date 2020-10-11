@@ -1,0 +1,42 @@
+---
+title: 'Blog Post Three: Shiny app: Self-reflection'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+## My Shiny App
+
+I wrote a shiny application entitled 'Coronavirus in Australia'. The application's purpose was to provide the user with information on how coronavirus has affected Australia in 2020. The application contained three main sections:
+
+- First graphic: A graph displaying confirmed coronavirus cases by state over time where the user has the ability to select their state of interest
+- Table: A table displaying confirmed coronavirus cases, deaths, recoveries, confirmed cumulative cases, cumulative deaths and cumulative recoveries in Australia by date where the user has the ability to select their date of interest.
+- Second graphic: A plotly graphic displaying coronavirus-related deaths in Victoria over time where the user has the ability to click on a data point of their choosing. The action of clicking would then generate a sentence describing the date and how many deaths occurred on that date in Victoria. The inclusion of this Victorian death graphic was motivated by the large number of coronavirus cases in Victoria as seen in the first graphic.
+
+## Self Review
+
+### What did I do well?
+
+I was pleased with my use of the 'shiny dashboard' format as opposed to the standard shiny format. I felt this made my application more aesthetically pleasing, easier to navigate and more functional for the end user. My concern in using the standard shiny format is that it would be easy for the end user's eye to stray and become confused by a multitude of plots on the same page. The shiny dashboard provided a more structured format.
+
+I was also pleased with my use of 'event_data' functionality for the second graphic. This was by far the most complex code to implement for me, so to see the output work seamlessly was of great satisfaction to me. 
+
+### What are some things I could improve on?
+
+I think the aesthetics of the application could have been better. Although the application looks nice, it is not necessarily beautiful or highly compelling in the ways that some of the best dashboards are. Being able to communicate data stylishly and beautifully is as important as the data analysis itself, in my opinion. Specifically, I think the use of infoBoxes, valueBoxes or a livelier skin might have made the application pop a bit more.
+
+I could also improve the application by using more complex and varied user input options. For example, for the first graphic I could have chosen to include a user input where the user is able to select multiple states. Or perhaps in the Table, instead of a single date use input, I could have included a date range input so the user can obtain more specific information about longer time periods (as opposed to a single day).
+
+### Plausible additions
+
+In the first graphic, I could have chosen to use a map of Australia whereby the user could click on a state that would in turn generate the graphic of confirmed coronavirus cases over time. This would have made the section more fun and user-friendly.
+
+Also, I think in the second graphic, the generated sentence could have been more complex and could have included more information such as deaths in Victoria as a proportion of deaths in Australia at that point in time.
+
+### Additions that were affected by my limitations in data or technology
+
+With more expertise, I might have added a section which displayed a model that forecasted future confirmed cases based on multiple models that the user would be able to select. For example, the user may have been able to select between parametric or non-parametric regression to forecast their chosen state's future confirmed cases. As of now, this is beyond the scope of my abilities in using R.
+
+I also believe that my relative inexperience in using HTML and CSS affected my ability to create a really beautiful dashboard. With more experience in those two languages, I believe I will be able to create prettier and more compelling dashboards.
+
