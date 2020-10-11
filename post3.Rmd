@@ -1,5 +1,5 @@
 ---
-title: 'Blog Post Three: Shiny app: Self-reflection'
+title: 'Blog Post Three'
 ---
 
 ```{r setup, include=FALSE}

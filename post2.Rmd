@@ -1,5 +1,5 @@
 ---
-title: 'Blog Post Two: Coronavirus in Ecuador'
+title: 'Blog Post Two'
 ---
 
 ```{r setup, include=FALSE}
