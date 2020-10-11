@@ -5,11 +5,11 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Blog Post 1: Coronavirus in Colombia"
+    - text: "Blog Post 1"
       href: post1.html
-    - text: "Blog Post 2: Coronavirus in Ecuador"
+    - text: "Blog Post 2"
       href: post2.html
-    - text: "Shiny App: Self-reflection"
+    - text: "Blog Post 3"
     - href: post3.html
 output:
   html_document:
