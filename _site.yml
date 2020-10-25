@@ -5,14 +5,16 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Blog Post 1"
-      href: post1.html
-    - text: "Blog Post 2"
-      href: post2.html
-    - text: "Blog Post 3"
-    - href: post3.html
-    - text: "Blog Post 4"
-    - href: post4.html
+    - text: "Blog Posts"
+      menu:
+        - text: "Blog Post 1"
+          href: post1.html
+        - text: "Blog Post 2"
+          href: post2.html
+        - text: "Blog Post 3"
+          href: post3.html
+        - text: "Blog Post 4"
+          href: post4.html
 output:
   html_document:
     theme: yeti
