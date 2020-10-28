@@ -9,8 +9,20 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 ## 'shinyCovidWorld' - R Package Peer Review
 
+### About the Package
+
 The R package 'shinyCovidWorld' was developed by Priscila Grecov. Per the package's README and vignette, "the goal of `shinyCovidWorld` package is embedding a Shiny application dashboard about COVID-19 world data exploration and visualization analysis." The package aims to do this through the use of a dataset called 'covidData' and a function that launches the shiny application called 'launch_app'. There are also supplementary functions called 'data_chart' and 'text_box' which contain refactored code from the original shiny application UI and server.
+
+### What did I think this package would do? Did it do it?
 
 After reading the relevant documentation (including function-specific documentation, README and the vignette), I expected to be able to use the 'launch_app' function and the covidData data.
 
-After installing the package, I found that I was able to generate the 'covidData' dataset succesfully. Then I attempted to use the 'launch_app' function. Initially, I was unable to generate the Shiny application but I was met with a clear message indicating that I was missing the 'shinythemes'. After installing and loading the 'shinythemes' package, I re-executed the 'launch_app' function and was met with a gorgeous Shiny application entitled 'COVID-19 AROUND THE WORLD'. I did not expect to see a meaningful output within the console when I ran the 'data_chart' and 'text_box' functions due to the descriptions given for these functions. However after looking through the Shiny application code, I was able to identify the use of these functions in simplifying repetitive code. 
+After installing the package, I found that I was able to generate the 'covidData' dataset succesfully. Then I attempted to use the 'launch_app' function. Initially, I was unable to generate the Shiny application but I was met with a clear message indicating that I was missing the 'shinythemes' package. After installing and loading the 'shinythemes' package, I re-executed the 'launch_app' function and was met with a gorgeous Shiny application entitled 'COVID-19 AROUND THE WORLD'. I did not expect to see a meaningful output within the console when I ran the 'data_chart' and 'text_box' functions due to the descriptions given for these functions. However after looking through the Shiny application code, I was able to identify the use of these functions in simplifying repetitive code. 
+
+### Are there any potential improvements that could be made to the  code and the Shiny app? Is the documentation sufficient to get started?
+
+From my perspective, the code was exceptionally well written. Both the code for the Shiny app and the functions are, first and foremost, functional as the package works seamlessly. Secondly, the code is clear and easy to follow as it follows conventions for good coding. If I had to nitpick (and I had to look hard to find something which speaks to the quality of the code), it would be even better if the comments attached to code within the UI and server logic had slightly more detail.
+
+I was completely blown away by the Shiny app 'COVID-19 AROUND THE WORLD'. The first thing that stands out are the aesthetics - the application is gorgeous to look at and has a very sophisticated look. The interactivity, however, is the best bit of the app. In particular, the 'Data by Continent and Country' tab was superb. fIn table 1, giving the user the ability to use a slider to filter on a range of values for *any* variable was impressive. Personally, it allowed me to view the pandemic through a unique lens - for example, filtering on 'how many tests 'Total Tests' gave me a different perspective than the conventional 'case' view. One improvement that could be made to the application would be to spread the interactive content over three or four tabs. This would allow the narrative of the app to flow smoother and also avoid potentially overwhelming the user.
+
+The documentation for the package is of high quality and easy to follow. A novice to the package would have no issue whatsoever in getting started with the provided documentation.
