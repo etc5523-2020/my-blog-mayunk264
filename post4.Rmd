@@ -15,7 +15,7 @@ The R package 'shinyCovidWorld' was developed by Priscila Grecov. Per the packag
 
 After reading the relevant documentation (including function-specific documentation, README and the vignette), I expected to be able to use the 'launch_app' function and the covidData dataset.
 
-After installing the package, I found that I was able to generate the 'covidData' dataset succesfully. Then I attempted to use the 'launch_app' function. Initially, I was unable to generate the Shiny application but I was met with a clear message indicating that I was missing the 'shinythemes' package. After installing and loading the 'shinythemes' package, I re-executed the 'launch_app' function and was met with a gorgeous Shiny application entitled 'COVID-19 AROUND THE WORLD'. I did not expect to see a meaningful output within the console when I ran the 'data_chart' and 'text_box' functions due to the descriptions given for these functions. However after looking through the Shiny application code, I was able to identify the use of these functions in simplifying repetitive code. 
+After installing the package, I found that I was able to generate the 'covidData' dataset successfully. Then I attempted to use the 'launch_app' function. Initially, I was unable to generate the Shiny application but I was met with a clear message indicating that I was missing the 'shinythemes' package. After installing and loading the 'shinythemes' package, I re-executed the 'launch_app' function and was met with a gorgeous Shiny application entitled 'COVID-19 AROUND THE WORLD'. I did not expect to see a meaningful output within the console when I ran the 'data_chart' and 'text_box' functions due to the descriptions given for these functions. However after looking through the Shiny application code, I was able to identify the use of these functions in simplifying repetitive code. 
 
 ### Are there any potential improvements that could be made to the  code and the Shiny app? Is the documentation sufficient to get started?
 
@@ -27,7 +27,7 @@ The documentation for the package is of high quality and easy to follow. A novic
 
 ### What I learnt from the package
 
-My main learnings from the package come from the complexity of the code. For example, in my own Shiny application, my code was not sufficiently complex enough to make the 'refactoring' exercise worthwhile. Priscila's app code was sufficiently complex that she was able to simplify the code through the refactoring process. As such, I learnt a lot about how to refactor in order to simplify repetitive code.
+My main learning from the package come from the complexity of the code. For example, in my own Shiny application, my code was not sufficiently complex enough to make the 'refactoring' exercise worthwhile. Priscila's app code was sufficiently complex that she was able to simplify the code through the refactoring process. As such, I learnt a lot about how to refactor in order to simplify repetitive code.
 
 ### Package Review
 
@@ -50,3 +50,5 @@ The package includes all the following forms of documentation:
 - [x] **Functionality:** Any functional claims of the software been confirmed.
 
 - [x] **Automated tests:** Unit tests cover essential functions of the package and a reasonable range of inputs and conditions. All tests pass on the local machine.
+
+N.B. The use of [x] indicates that the requirements were met.
