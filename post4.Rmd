@@ -1,7 +1,16 @@
 ---
-title: 'Blog Post Four - Shiny app peer review'
+title: 'Blog Post Four - R Package Peer Review'
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
+
+
+## 'shinyCovidWorld' - R Package Peer Review
+
+The R package 'shinyCovidWorld' was developed by Priscila Grecov. Per the package's README and vignette, "the goal of `shinyCovidWorld` package is embedding a Shiny application dashboard about COVID-19 world data exploration and visualization analysis." The package aims to do this through the use of a dataset called 'covidData' and a function that launches the shiny application called 'launch_app'. There are also supplementary functions called 'data_chart' and 'text_box' which contain refactored code from the original shiny application UI and server.
+
+After reading the relevant documentation (including function-specific documentation, README and the vignette), I expected to be able to use the 'launch_app' function and the covidData data.
+
+After installing the package, I found that I was able to generate the 'covidData' dataset succesfully. Then I attempted to use the 'launch_app' function. Initially, I was unable to generate the Shiny application but I was met with a clear message indicating that I was missing the 'shinythemes'. After installing and loading the 'shinythemes' package, I re-executed the 'launch_app' function and was met with a gorgeous Shiny application entitled 'COVID-19 AROUND THE WORLD'. I did not expect to see a meaningful output within the console when I ran the 'data_chart' and 'text_box' functions due to the descriptions given for these functions. However after looking through the Shiny application code, I was able to identify the use of these functions in simplifying repetitive code. 
