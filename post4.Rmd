@@ -7,15 +7,13 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
 
 
-## 'shinyCovidWorld' - R Package Peer Review
-
 ### About the Package
 
 The R package 'shinyCovidWorld' was developed by Priscila Grecov. Per the package's README and vignette, "the goal of `shinyCovidWorld` package is embedding a Shiny application dashboard about COVID-19 world data exploration and visualization analysis." The package aims to do this through the use of a dataset called 'covidData' and a function that launches the shiny application called 'launch_app'. There are also supplementary functions called 'data_chart' and 'text_box' which contain refactored code from the original shiny application UI and server.
 
 ### What did I think this package would do? Did it do it?
 
-After reading the relevant documentation (including function-specific documentation, README and the vignette), I expected to be able to use the 'launch_app' function and the covidData data.
+After reading the relevant documentation (including function-specific documentation, README and the vignette), I expected to be able to use the 'launch_app' function and the covidData dataset.
 
 After installing the package, I found that I was able to generate the 'covidData' dataset succesfully. Then I attempted to use the 'launch_app' function. Initially, I was unable to generate the Shiny application but I was met with a clear message indicating that I was missing the 'shinythemes' package. After installing and loading the 'shinythemes' package, I re-executed the 'launch_app' function and was met with a gorgeous Shiny application entitled 'COVID-19 AROUND THE WORLD'. I did not expect to see a meaningful output within the console when I ran the 'data_chart' and 'text_box' functions due to the descriptions given for these functions. However after looking through the Shiny application code, I was able to identify the use of these functions in simplifying repetitive code. 
 
@@ -23,6 +21,32 @@ After installing the package, I found that I was able to generate the 'covidData
 
 From my perspective, the code was exceptionally well written. Both the code for the Shiny app and the functions are, first and foremost, functional as the package works seamlessly. Secondly, the code is clear and easy to follow as it follows conventions for good coding. If I had to nitpick (and I had to look hard to find something which speaks to the quality of the code), it would be even better if the comments attached to code within the UI and server logic had slightly more detail.
 
-I was completely blown away by the Shiny app 'COVID-19 AROUND THE WORLD'. The first thing that stands out are the aesthetics - the application is gorgeous to look at and has a very sophisticated look. The interactivity, however, is the best bit of the app. In particular, the 'Data by Continent and Country' tab was superb. fIn table 1, giving the user the ability to use a slider to filter on a range of values for *any* variable was impressive. Personally, it allowed me to view the pandemic through a unique lens - for example, filtering on 'how many tests 'Total Tests' gave me a different perspective than the conventional 'case' view. One improvement that could be made to the application would be to spread the interactive content over three or four tabs. This would allow the narrative of the app to flow smoother and also avoid potentially overwhelming the user.
+I was completely blown away by the Shiny app 'COVID-19 AROUND THE WORLD'. The first thing that stands out are the aesthetics - the application is gorgeous to look at and has a very sophisticated look. The interactivity, however, is the best bit of the app. In particular, the 'Data by Continent and Country' tab was superb. In table 1, giving the user the ability to use a slider to filter on a range of values for *any* variable was impressive. Personally, it allowed me to view the pandemic through a unique lens - for example, filtering on 'Total Tests' gave me a different perspective than the conventional 'case' view. One improvement that could be made to the application would be to spread the interactive content over three or four tabs. This would allow the narrative of the app to flow smoother and also avoid potentially overwhelming the user.
 
 The documentation for the package is of high quality and easy to follow. A novice to the package would have no issue whatsoever in getting started with the provided documentation.
+
+### What I learnt from the package
+
+My main learnings from the package come from the complexity of the code. For example, in my own Shiny application, my code was not sufficiently complex enough to make the 'refactoring' exercise worthwhile. Priscila's app code was sufficiently complex that she was able to simplify the code through the refactoring process. As such, I learnt a lot about how to refactor in order to simplify repetitive code.
+
+### Package Review
+
+#### Documentation
+
+The package includes all the following forms of documentation:
+
+- [x] **Installation instructions:** for the package is found in README.
+
+- [x] **Vignette(s)** demonstrating major functionality that runs successfully locally
+
+- [x] **Function Documentation:** for all exported functions in R help
+
+- [x] **Examples** for all exported functions in R Help that run successfully locally.
+
+#### Functionality
+
+- [x] **Installation:** Installation succeeds as documented.
+
+- [x] **Functionality:** Any functional claims of the software been confirmed.
+
+- [x] **Automated tests:** Unit tests cover essential functions of the package and a reasonable range of inputs and conditions. All tests pass on the local machine.
